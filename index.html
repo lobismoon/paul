@@ -211,6 +211,7 @@ nav.scrolled {
 .nav-links li:nth-child(3) { animation-delay: 2.2s; }
 .nav-links li:nth-child(4) { animation-delay: 2.3s; }
 .nav-links li:nth-child(5) { animation-delay: 2.4s; }
+.nav-links li:nth-child(6) { animation-delay: 2.5s; }
 
 @keyframes navLinkIn {
   to { opacity: 1; transform: translateY(0); }
@@ -1228,6 +1229,200 @@ footer a:hover { color: var(--gold); }
 }
 
 /* ═══════════════════════════════════════
+   ACHIEVEMENTS
+═══════════════════════════════════════ */
+.achievements-section {
+  background: linear-gradient(135deg, #0a0a14 0%, #0e0e1e 100%);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.achievement-card {
+  padding: 2rem;
+  border: 1px solid rgba(184,134,11,0.12);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.achievement-card:hover { border-color: rgba(184,134,11,0.3); background: rgba(184,134,11,0.02); }
+.achievement-card:hover::before { transform: scaleX(1); }
+
+.achievement-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.achievement-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--cream);
+}
+
+.achievement-desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--fog);
+}
+
+.achievement-year {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-top: 0.8rem;
+  display: block;
+}
+
+/* ═══════════════════════════════════════
+   PRESS & APPEARANCES
+═══════════════════════════════════════ */
+.press-section {
+  background: #0a0a0a;
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.press-tabs {
+  display: flex;
+  gap: 0;
+  margin-top: var(--space-lg);
+  border-bottom: 1px solid rgba(184,134,11,0.15);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.press-tab {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fog);
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.press-tab.active, .press-tab:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+
+.press-panel { display: none; }
+.press-panel.active { display: block; }
+
+.press-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.press-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: start;
+  gap: var(--space-md);
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background var(--transition);
+}
+
+.press-item:hover { background: rgba(184,134,11,0.02); }
+.press-item:last-child { border-bottom: none; }
+
+.press-date {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+
+.press-body {
+color: #050505;}
+
+.press-outlet {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fog);
+  margin-bottom: 0.3rem;
+}
+
+.press-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+.press-desc {
+  font-size: 0.82rem;
+  color: var(--fog);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
+.press-tag {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(184,134,11,0.3);
+  color: var(--gold);
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.press-add-note {
+  margin-top: var(--space-md);
+  padding: 1.2rem 1.5rem;
+  border: 1px dashed rgba(184,134,11,0.2);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(245,240,232,0.25);
+  text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .achievements-grid { grid-template-columns: 1fr; gap: var(--space-sm); }
+  .press-item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .press-tag { display: none; }
+  .press-tabs { gap: 0; }
+  .press-tab { padding: 0.6rem 0.9rem; font-size: 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  .achievements-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
    REDUCED MOTION
 ═══════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
@@ -1247,7 +1442,8 @@ footer a:hover { color: var(--gold); }
     <li><a href="#about">About</a></li>
     <li><a href="#books">Books</a></li>
     <li><a href="#career">Career</a></li>
-    <li><a href="#media">Media</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#press">Press</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1257,11 +1453,13 @@ footer a:hover { color: var(--gold); }
 
 <!-- Mobile drawer -->
 <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Mobile navigation">
-  <a href="#about"   onclick="closeDrawer()">About</a>
-  <a href="#books"   onclick="closeDrawer()">Books</a>
-  <a href="#career"  onclick="closeDrawer()">Career</a>
-  <a href="#media"   onclick="closeDrawer()">Media</a>
-  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <a href="#about"        onclick="closeDrawer()">About</a>
+  <a href="#books"        onclick="closeDrawer()">Books</a>
+  <a href="#career"       onclick="closeDrawer()">Career</a>
+  <a href="#achievements" onclick="closeDrawer()">Achievements</a>
+  <a href="#press"        onclick="closeDrawer()">Press</a>
+  <a href="#media"        onclick="closeDrawer()">Media</a>
+  <a href="#contact"      onclick="closeDrawer()">Contact</a>
 </div>
 
 <!-- ═══ HERO ═══ -->
@@ -1506,6 +1704,265 @@ footer a:hover { color: var(--gold); }
   </div>
 </section>
 
+<!-- ═══ ACHIEVEMENTS ═══ -->
+<section id="achievements" class="achievements-section" aria-label="Achievements and roles">
+  <p class="eyebrow reveal">Recognition &amp; Roles</p>
+  <h2 class="section-title reveal">A Career Built on<br><em>Distinction</em></h2>
+
+  <div class="achievements-grid reveal">
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Spitfire &amp; Mustang Pilot</div>
+      <div class="achievement-desc">One of a tiny number of civilian historians to hold a Spitfire type rating. Flying since 2011, Paul brings unmatched first-hand authority to Britain's most iconic aircraft.</div>
+      <span class="achievement-year">Since 2011</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Bestselling Author — Over 50 Books</div>
+      <div class="achievement-desc">Published by Penguin, Simon &amp; Schuster, Michael Collins and Elliott &amp; Thompson. His biography of Eric Brown, <em>Winkle</em>, became an instant bestseller on publication.</div>
+      <span class="achievement-year">1970s – Present</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Colonel, Army Air Corps (retd.)</div>
+      <div class="achievement-desc">Retired in 2013 as the most senior Army Aviation reservist in the UK, having served 27 years in the Territorial Army. Formerly Chairman of No 1010 (City of Salisbury) Squadron, Air Cadet Organisation.</div>
+      <span class="achievement-year">Retired 2013</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Founding Ace — National Spitfire Memorial</div>
+      <div class="achievement-desc">Trustee and chair of the Development Committee for the National Spitfire Memorial at Southampton — the birthplace of the Spitfire. A pivotal figure in securing its future.</div>
+      <span class="achievement-year">Ongoing</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">D-Day &amp; VE-Day Broadcaster, CNN</div>
+      <div class="achievement-desc">Jointly presented CNN's landmark 50th anniversary coverage of D-Day from Normandy and VE-Day from Moscow — reaching an audience of tens of millions worldwide.</div>
+      <span class="achievement-year">1994 – 1995</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Chairman, Royal Aeronautical Society Heritage</div>
+      <div class="achievement-desc">Served as Chairman of Aeronautical Heritage for the Royal Aeronautical Society from 2018 to 2022. Also Vice-President of the Spitfire Society and Vice-Chairman of the Billy Fiske Foundation.</div>
+      <span class="achievement-year">2018 – 2022</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">War Correspondent — Sky News</div>
+      <div class="achievement-desc">Front-line reporting from Bosnia, Kosovo, and Sierra Leone. Produced and presented documentaries on the Cold War, Battle of Britain, and the conflicts of the 1990s for Sky News.</div>
+      <span class="achievement-year">1997 – 2000</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Editor-in-Chief, Jane's Defence Weekly</div>
+      <div class="achievement-desc">Transformed Jane's Defence Weekly into a global household name during the 1990 Gulf War. His analysis was sought by governments, militaries, and broadcasters worldwide.</div>
+      <span class="achievement-year">1985 – 2000</span>
+    </div>
+
+    <div class="achievement-card">
+      <span class="achievement-icon"></span>
+      <div class="achievement-title">Director, Army Flying Museum</div>
+      <div class="achievement-desc">Director and Trustee of the Army Flying Museum at Middle Wallop — one of Britain's finest collections of military aviation heritage. Also a former Trustee of the Barnes Wallis Foundation.</div>
+      <span class="achievement-year">Ongoing</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PRESS & APPEARANCES ═══ -->
+<section id="press" class="press-section" aria-label="Press and appearances">
+  <p class="eyebrow reveal">In the Press</p>
+  <h2 class="section-title reveal">Press &amp; Appearances</h2>
+
+  <div class="press-tabs reveal" role="tablist">
+    <button class="press-tab active" role="tab" aria-selected="true"  onclick="switchTab('interviews')">Interviews</button>
+    <button class="press-tab"        role="tab" aria-selected="false" onclick="switchTab('talks')">Talks &amp; Events</button>
+    <button class="press-tab"        role="tab" aria-selected="false" onclick="switchTab('media')">TV &amp; Radio</button>
+  </div>
+
+  <!-- INTERVIEWS -->
+  <div class="press-panel active" id="tab-interviews">
+    <div class="press-list">
+
+      <div class="press-item">
+        <div class="press-date">Sep 2025</div>
+        <div class="press-body">
+          <div class="press-outlet">Aspects of History</div>
+          <div class="press-title">Paul Beaver on Mitchell: Father of the Spitfire</div>
+          <div class="press-desc">In-depth author interview discussing Reginald Mitchell's genius, the Supermarine design team, and the Schneider Trophy's role in shaping the Spitfire.</div>
+        </div>
+        <div class="press-tag">Interview</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">Jun 2025</div>
+        <div class="press-body">
+          <div class="press-outlet">Waterstones Salisbury</div>
+          <div class="press-title">Paul Beaver in Conversation</div>
+          <div class="press-desc">An evening with Paul Beaver at Waterstones Salisbury — discussing his career, his books, and what drives him to keep flying and writing history.</div>
+        </div>
+        <div class="press-tag">In Person</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2023</div>
+        <div class="press-body">
+          <div class="press-outlet">Hoare's Bank</div>
+          <div class="press-title">Cold War Double Agents — A Talk</div>
+          <div class="press-desc">Paul delivered a sold-out lecture on Cold War espionage, exploring the motivations of double agents and the human intelligence methods of the era.</div>
+        </div>
+        <div class="press-tag">Lecture</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">Ongoing</div>
+        <div class="press-body">
+          <div class="press-outlet">Navy Wings</div>
+          <div class="press-title">History Tour Guide — Fleet Air Arm Heritage</div>
+          <div class="press-desc">Paul serves as an official history tour guide for Navy Wings, sharing the story of the Fleet Air Arm with enthusiasts and veterans.</div>
+        </div>
+        <div class="press-tag">Role</div>
+      </div>
+
+    </div>
+    <div class="press-add-note">More interviews and features to be added — contact us to submit a mention</div>
+  </div>
+
+  <!-- TALKS & EVENTS -->
+  <div class="press-panel" id="tab-talks">
+    <div class="press-list">
+
+      <div class="press-item">
+        <div class="press-date">Jun 2024</div>
+        <div class="press-body">
+          <div class="press-outlet">Chalke History Festival</div>
+          <div class="press-title">Speaker — Aviation & Special Forces History</div>
+          <div class="press-desc">Invited speaker at the 2024 Chalke History Festival, one of Britain's premier history events. Paul has been a regular fixture at Chalke Valley since 2014.</div>
+        </div>
+        <div class="press-tag">Festival</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2023</div>
+        <div class="press-body">
+          <div class="press-outlet">Chalke History Festival</div>
+          <div class="press-title">Air Show Commentator &amp; Panel Speaker</div>
+          <div class="press-desc">Returned as Air Show commentator and panellist, discussing naval aviation and the Battle of Britain with fellow historians.</div>
+        </div>
+        <div class="press-tag">Festival</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2021</div>
+        <div class="press-body">
+          <div class="press-outlet">Hoare's Bank, London</div>
+          <div class="press-title">WWII Double Agents — Private Lecture</div>
+          <div class="press-desc">An acclaimed private lecture series on wartime espionage, intelligence tradecraft, and the stories behind history's most significant double agents.</div>
+        </div>
+        <div class="press-tag">Lecture</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2019</div>
+        <div class="press-body">
+          <div class="press-outlet">Chalke Valley History Festival</div>
+          <div class="press-title">The Hawker Typhoon — An Unsung Hero</div>
+          <div class="press-desc">Panel discussion with John Buckley and Paul Stoddart on the rocket-firing Hawker Typhoon and its decisive role in the Normandy campaign.</div>
+        </div>
+        <div class="press-tag">Panel</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2014</div>
+        <div class="press-body">
+          <div class="press-outlet">Chalke Valley History Festival</div>
+          <div class="press-title">Sell-Out Lecture — People, Places &amp; Politics of the Spitfire</div>
+          <div class="press-desc">Paul's debut Chalke Valley lecture sold out — covering the full human story behind the Spitfire from design through to legacy.</div>
+        </div>
+        <div class="press-tag">Sold Out</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">Ongoing</div>
+        <div class="press-body">
+          <div class="press-outlet">Army Flying Museum, Middle Wallop</div>
+          <div class="press-title">Regular Talks &amp; Discussions</div>
+          <div class="press-desc">As Trustee and Director, Paul contributes regular talks and discussion programmes to the Museum's public events calendar.</div>
+        </div>
+        <div class="press-tag">Regular</div>
+      </div>
+
+    </div>
+    <div class="press-add-note">Upcoming speaking engagements will be updated here accordingly</div>
+  </div>
+
+  <!-- TV & RADIO -->
+  <div class="press-panel" id="tab-media">
+    <div class="press-list">
+
+      <div class="press-item">
+        <div class="press-date">1994 – 95</div>
+        <div class="press-body">
+          <div class="press-outlet">CNN International</div>
+          <div class="press-title">Co-Presenter — D-Day 50th Anniversary (Normandy)</div>
+          <div class="press-desc">Jointly presented CNN's landmark live coverage from Normandy for the 50th anniversary of D-Day, broadcast to tens of millions globally.</div>
+        </div>
+        <div class="press-tag">Television</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">1995</div>
+        <div class="press-body">
+          <div class="press-outlet">CNN International</div>
+          <div class="press-title">Co-Presenter — VE-Day 50th Anniversary (Moscow)</div>
+          <div class="press-desc">Travelled to Moscow to co-present CNN's VE-Day anniversary broadcast — one of the most watched news events of 1995.</div>
+        </div>
+        <div class="press-tag">Television</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">1990</div>
+        <div class="press-body">
+          <div class="press-outlet">BBC News / Sky News / CNN</div>
+          <div class="press-title">Gulf War Defence Analyst</div>
+          <div class="press-desc">Paul became a household name during the liberation of Kuwait, providing expert defence analysis across BBC, Sky News, and CNN simultaneously.</div>
+        </div>
+        <div class="press-tag">Television</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">2000</div>
+        <div class="press-body">
+          <div class="press-outlet">Sky News</div>
+          <div class="press-title">Documentary — Battle of Britain</div>
+          <div class="press-desc">Researched, wrote, and presented a Sky News documentary on the Battle of Britain featuring new interviews with veterans, now archived with the Battle of Britain Memorial Trust.</div>
+        </div>
+        <div class="press-tag">Documentary</div>
+      </div>
+
+      <div class="press-item">
+        <div class="press-date">1997 – 99</div>
+        <div class="press-body">
+          <div class="press-outlet">Sky News</div>
+          <div class="press-title">Documentaries — Bosnia, Kosovo &amp; Cold War</div>
+          <div class="press-desc">Series of documentary films covering the conflicts in Bosnia (1997), Kosovo (1999), and the Cold War (1999) for Sky News audiences.</div>
+        </div>
+        <div class="press-tag">Documentary</div>
+      </div>
+
+    </div>
+    <div class="press-add-note"> Recent TV,radio and lecture appearances will be added accordingly</div>
+  </div>
+</section>
+
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" class="contact-section" aria-label="Contact">
   <p class="eyebrow reveal" style="justify-content:center;">Get in Touch</p>
@@ -1661,6 +2118,21 @@ modal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
 });
+
+/* ── Press tabs ── */
+function switchTab(tabName) {
+  document.querySelectorAll('.press-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.press-panel').forEach(p => p.classList.remove('active'));
+
+  const activeTab = document.querySelector(`.press-tab[onclick="switchTab('${tabName}')"]`);
+  const activePanel = document.getElementById(`tab-${tabName}`);
+
+  if (activeTab)  { activeTab.classList.add('active'); activeTab.setAttribute('aria-selected', 'true'); }
+  if (activePanel) activePanel.classList.add('active');
+}
 </script>
 </body>
 </html>
