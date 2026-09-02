@@ -1359,8 +1359,7 @@ footer a:hover { color: var(--gold); }
   padding-top: 0.15rem;
 }
 
-.press-body {
-color: #050505;}
+.press-body {color: #050505;}
 
 .press-outlet {
   font-family: 'Rajdhani', sans-serif;
@@ -1423,6 +1422,373 @@ color: #050505;}
 }
 
 /* ═══════════════════════════════════════
+   UPCOMING EVENTS
+═══════════════════════════════════════ */
+.events-section {
+  background: linear-gradient(180deg, #0a0a14 0%, #0d0d0d 100%);
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.event-card {
+  background: #111;
+  border: 1px solid rgba(184,134,11,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.event-card:hover {
+  border-color: rgba(184,134,11,0.35);
+  transform: translateY(-4px);
+}
+
+.event-card-image {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a2744, #0a1628);
+}
+
+.event-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.event-card:hover .event-card-image img {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+.event-date-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.5rem 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.event-date-badge .day {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  display: block;
+  line-height: 1;
+}
+
+.event-card-body {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.event-type {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--cream);
+}
+
+.event-venue {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--fog);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.event-venue::before {
+  content: '📍';
+  font-size: 0.7rem;
+}
+
+.event-desc {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(245,240,232,0.55);
+  flex: 1;
+}
+
+.event-card-footer {
+  padding: 0 1.6rem 1.6rem;
+}
+
+.event-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all var(--transition);
+  width: 100%;
+  justify-content: center;
+}
+
+.event-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.event-placeholder {
+  background: rgba(184,134,11,0.03);
+  border: 1px dashed rgba(184,134,11,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  min-height: 280px;
+}
+
+.event-placeholder-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.2);
+}
+
+/* ═══════════════════════════════════════
+   CONTACT FORM
+═══════════════════════════════════════ */
+.contact-section {
+  background: #050505;
+  padding: var(--space-2xl) var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  margin-top: var(--space-lg);
+}
+
+.contact-info { color: #050505;}
+
+.contact-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--cream);
+}
+
+.contact-info-text {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--fog);
+  margin-bottom: var(--space-md);
+}
+
+.contact-direct-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-direct-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--fog);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.contact-direct-link:hover { color: var(--gold-light); }
+
+.contact-direct-link span {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(184,134,11,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.contact-direct-link:hover span {
+  background: rgba(184,134,11,0.1);
+  border-color: var(--gold);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fog);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(184,134,11,0.15);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  transition: border-color var(--transition), background var(--transition);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  background: rgba(184,134,11,0.04);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: rgba(245,240,232,0.2); }
+
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23b8860b' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-select option { background: #1a1a1a; color: var(--cream); }
+
+.form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1rem 2rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+}
+
+.form-submit:hover {
+  background: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(184,134,11,0.4);
+}
+
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-success {
+  display: none;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid rgba(184,134,11,0.4);
+  background: rgba(184,134,11,0.05);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  text-align: center;
+}
+
+.form-success.visible { display: block; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .events-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .events-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════
    REDUCED MOTION
 ═══════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
@@ -1443,6 +1809,7 @@ color: #050505;}
     <li><a href="#books">Books</a></li>
     <li><a href="#career">Career</a></li>
     <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#events">Events</a></li>
     <li><a href="#press">Press</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1457,6 +1824,7 @@ color: #050505;}
   <a href="#books"        onclick="closeDrawer()">Books</a>
   <a href="#career"       onclick="closeDrawer()">Career</a>
   <a href="#achievements" onclick="closeDrawer()">Achievements</a>
+  <a href="#events"       onclick="closeDrawer()">Events</a>
   <a href="#press"        onclick="closeDrawer()">Press</a>
   <a href="#media"        onclick="closeDrawer()">Media</a>
   <a href="#contact"      onclick="closeDrawer()">Contact</a>
@@ -1777,6 +2145,55 @@ color: #050505;}
   </div>
 </section>
 
+<!-- ═══ UPCOMING EVENTS ═══ -->
+<section id="events" class="events-section" aria-label="Upcoming events">
+  <p class="eyebrow reveal">What's On</p>
+  <h2 class="section-title reveal">Upcoming Events &amp;<br><em>Appearances</em></h2>
+
+  <div class="events-grid reveal">
+
+    <!-- Event 1 -->
+    <div class="event-card">
+      <div class="event-card-image">
+        <img src="paul.jpg" alt="AirACES Talk — Boxgrove" loading="lazy" />
+        <div class="event-date-badge">
+          <span class="day">23</span>
+          Feb 2026
+        </div>
+      </div>
+      <div class="event-card-body">
+        <div class="event-type">Talk</div>
+        <div class="event-title">90 Years of the Spitfire &amp; Winkle — Our Greatest Aviator</div>
+        <div class="event-venue">Boxgrove Village Hall, West Sussex</div>
+        <div class="event-desc">Two talks by Paul Beaver for AirACES — covering the 90-year legacy of the Spitfire and the extraordinary life of Captain Eric "Winkle" Brown.</div>
+      </div>
+      <div class="event-card-footer">
+        <a href="#contact" class="event-btn">
+          Enquire About Tickets
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Placeholder 1 -->
+    <div class="event-card">
+      <div class="event-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(184,134,11,0.3)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="event-placeholder-text">Upcoming Event<br>Details to be confirmed</div>
+      </div>
+    </div>
+
+    <!-- Placeholder 2 -->
+    <div class="event-card">
+      <div class="event-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(184,134,11,0.3)" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div class="event-placeholder-text">Upcoming Event<br>Details to be confirmed</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ PRESS & APPEARANCES ═══ -->
 <section id="press" class="press-section" aria-label="Press and appearances">
   <p class="eyebrow reveal">In the Press</p>
@@ -1901,7 +2318,7 @@ color: #050505;}
       </div>
 
     </div>
-    <div class="press-add-note">Upcoming speaking engagements will be updated here accordingly</div>
+    <div class="press-add-note">Add your upcoming speaking engagements here</div>
   </div>
 
   <!-- TV & RADIO -->
@@ -1959,18 +2376,89 @@ color: #050505;}
       </div>
 
     </div>
-    <div class="press-add-note"> Recent TV,radio and lecture appearances will be added accordingly</div>
+    <div class="press-add-note">Add recent TV and radio appearances here</div>
   </div>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
 <section id="contact" class="contact-section" aria-label="Contact">
-  <p class="eyebrow reveal" style="justify-content:center;">Get in Touch</p>
+  <p class="eyebrow reveal">Get in Touch</p>
   <h2 class="section-title reveal">Speaking, Events<br><em>&amp; Signed Copies</em></h2>
-  <p class="contact-sub reveal">For speaking enquiries, media requests, signed book orders, or general correspondence, reach out directly.</p>
-  <div class="contact-links reveal">
-    <a href="mailto:paul@beaverwestminster.com" class="btn-primary">Send an Email</a>
-    <a href="https://www.instagram.com/pilotbeaver/" target="_blank" rel="noopener noreferrer" class="btn-secondary">@pilotbeaver on Instagram</a>
+
+  <div class="contact-grid reveal">
+
+    <!-- Left — info -->
+    <div class="contact-info">
+      <div class="contact-info-title">How Can Paul Help?</div>
+      <p class="contact-info-text">Whether you're looking to book Paul for a speaking engagement, arrange a media appearance, order a personally signed copy of one of his books, or simply get in touch — fill in the form and he'll respond directly.</p>
+
+      <div class="contact-direct-links">
+        <a href="mailto:paul@beaverwestminster.com" class="contact-direct-link">
+          <span>✉</span>
+          paul@beaverwestminster.com
+        </a>
+        <a href="https://www.instagram.com/pilotbeaver/" target="_blank" rel="noopener noreferrer" class="contact-direct-link">
+          <span></span>
+          @pilotbeaver on Instagram
+        </a>
+        <a href="https://www.simonandschuster.co.uk/authors/Paul-Beaver/242187268" target="_blank" rel="noopener noreferrer" class="contact-direct-link">
+          <span></span>
+          Publisher Page — Simon &amp; Schuster
+        </a>
+      </div>
+    </div>
+
+    <!-- Right — form -->
+    <div>
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/xkjnrjgy"
+        method="POST"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First Name</label>
+            <input class="form-input" type="text" id="firstName" name="firstName" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last Name</label>
+            <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Smith" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="john@example.com" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reason">Reason for Contact</label>
+          <select class="form-select" id="reason" name="reason" required>
+            <option value="" disabled selected>Select a reason…</option>
+            <option value="speaking">Speaking Enquiry</option>
+            <option value="media">Media / Press Request</option>
+            <option value="books">Signed Book Order</option>
+            <option value="general">General Correspondence</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Tell Paul what you have in mind…" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">
+          Send Message
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="form-success" id="formSuccess">
+          ✓ Message sent — Paul will be in touch shortly.
+        </div>
+      </form>
+    </div>
+
   </div>
 </section>
 
@@ -2118,6 +2606,41 @@ modal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
 });
+
+/* ── Contact form (Formspree) ── */
+const contactForm = document.getElementById('contactForm');
+const submitBtn   = document.getElementById('submitBtn');
+const formSuccess = document.getElementById('formSuccess');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        formSuccess.classList.add('visible');
+        submitBtn.style.display = 'none';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please try emailing paul@beaverwestminster.com directly.');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      alert('Something went wrong. Please try emailing paul@beaverwestminster.com directly.');
+    }
+  });
+}
 
 /* ── Press tabs ── */
 function switchTab(tabName) {
